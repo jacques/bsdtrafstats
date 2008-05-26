@@ -1,0 +1,5 @@
+= FreeBSD Traffic Accounting Tools =
+
+FreeBSD Traffic Accounting Tools is some scripts that make use of trafd
+for figuring out how much traffic has been consumed - was initially
+written for Ataris Technologies colocation traffic billing back in 2002.
