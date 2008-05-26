@@ -3,3 +3,13 @@
 FreeBSD Traffic Accounting Tools is some scripts that make use of trafd
 for figuring out how much traffic has been consumed - was initially
 written for Ataris Technologies colocation traffic billing back in 2002.
+
+== crontab entries ==
+
+#minute hour    mday    month   wday    command
+# save traffic databases so at most we loose 5 minutes worth of traffic stats
+*/5	*	*	*	*	/usr/local/ispdb/bin/trafd/savelive rl0 rl1 dc0 dc1
+# dump traffic logs nightly for all interfaces on phantom.ataris.co.za
+0	0	*	*	*	/usr/local/ispdb/bin/trafd/dumpnightly rl0 rl1 dc0 dc1
+# save current days traffic logs for all interfaces on phantom.ataris.co.za
+59	23	*	*	*	/usr/local/ispdb/bin/trafd/rotatenightly rl0 rl1 dc0 dc1
